@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: pie-chart-deployment
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            component: app
+    template:
+        metadata:
+            labels:
+                component: app
+        spec:
+            containers:
+                - name: app
+                  image: namanv3/pie-chart
+                  ports:
+                      - containerPort: 3000
